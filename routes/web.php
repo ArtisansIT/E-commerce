@@ -11,17 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+Route::group(['namespace'=>'Frontend'],function(){
+
+    Route::get('/','frontendController@index')->name('mainpage');
+    Route::get('log','frontendController@login')->name('login_registation');
 });
 
-Auth::routes();
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('dashboard', 'dashboardController@index')->name('dashboard');
+    Route::resource('category','CategoryController');
+});
+Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'User', 'middleware' => ['auth', 'user']], function () {
+    Route::get('dashboard', 'dashboardController@index')->name('dashboard');
+});
 
-Route::group(['prefix'=>'admin', 'as'=>'admin.','namespace'=>'Admin','middleware'=>['auth','admin']],function(){
-    Route::get('dashboard','dashboardController@index')->name('dashboard'); 
- });
- Route::group(['prefix'=>'user', 'as'=>'user.','namespace'=>'User','middleware'=>['auth','user']],function(){
-     Route::get('dashboard','dashboardController@index')->name('dashboard'); 
- });
-
-Route::get('/home', 'HomeController@index')->name('home');

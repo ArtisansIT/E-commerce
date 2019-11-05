@@ -25,7 +25,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="{{ route('home') }} "><i class="fa fa-dashboard text-red"></i> <span>Dashboard</span></a></li>
+        <li><a href=" "><i class="fa fa-dashboard text-red"></i> <span>Dashboard</span></a></li>
        
        
         <li><a href=""> <i class="fa  fa-list text-yellow"></i><span> ডাক্তারের মেসেজ</span></a></li>
@@ -33,6 +33,18 @@
        
 
 
+        <li class=" treeview">
+          <a href="#">
+            <i class="fa  fa-list text-yellow"></i> <span>Category</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('admin.category.create') }}"><i class="fa fa-circle-o text-aqua"></i><span>Create Category </span></a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i><span>View All Category </span></a></li>
+          </ul>
+        </li>
         <li class=" treeview">
           <a href="#">
             <i class="fa  fa-list text-yellow"></i> <span>Slider</span>
