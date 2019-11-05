@@ -14,16 +14,16 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
     <!-- Bootstrap CSS -->
-    <link href="{{ asset('frontend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('frontend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font-Awesome CSS -->
-    <link href="{{ asset('frontend/assets/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('frontend/assets/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- helper class css -->
-    <link href="{{ asset('frontend/assets/css/helper.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('frontend/assets/css/helper.min.css') }}" rel="stylesheet">
     <!-- Plugins CSS -->
-    <link href="{{ asset('frontend/assets/css/plugins.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('frontend/assets/css/plugins.css') }}" rel="stylesheet">
     <!-- Main Style CSS -->
-    <link href="{{ asset('frontend/assets/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/skin-default.css') }}" rel="stylesheet" id="galio-skin">
+    <link href="{{ secure_asset('frontend/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('frontend/assets/css/skin-default.css') }}" rel="stylesheet" id="galio-skin">
 </head>
 
 <body>
