@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Admin\Category;
 use App\Http\Controllers\Controller;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -16,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        Alert::alert('Success','sms');
+        return view ('admin.category.home');
     }
 
     /**
@@ -26,6 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+    
         return view ('admin.category.create');
        
     }
@@ -37,9 +37,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Category $category , Request $request)
-    {
+    {   
         $category->name = $request->name;
         $category->save();
+        return redirect()->back()->with('success','Category Create');
         
     }
 
@@ -60,9 +61,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.category.update',compact('category'));
     }
 
     /**
@@ -72,9 +73,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route('admin.category.index')->with('success','Category Updated');
     }
 
     /**
@@ -83,8 +86,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.category.index')->with('delete','Category Delete');
     }
 }

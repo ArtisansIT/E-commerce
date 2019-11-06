@@ -42,7 +42,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('admin.category.create') }}"><i class="fa fa-circle-o text-aqua"></i><span>Create Category </span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i><span>View All Category </span></a></li>
+            <li><a href="{{ route('admin.category.index') }}"><i class="fa fa-circle-o text-aqua"></i><span>View All Category </span></a></li>
           </ul>
         </li>
         <li class=" treeview">

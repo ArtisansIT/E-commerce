@@ -38,9 +38,11 @@
 <script src="{{ asset('admin/css/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('admin/css/dist/js/demo.js') }}"></script>
+@include('sweetalert::alert')
 @section('footerContent')
-   
+
 @show
+
 
 </body>
 </html>

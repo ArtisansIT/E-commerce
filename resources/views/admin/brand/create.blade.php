@@ -6,7 +6,9 @@
             <br>
             <div class="col-md-6 col-md-offset-3">
                 <h1>Category Create</h1>
+                
 
+              @include('admin/massages/massage')
 
                @include('admin/massages/error')
             <form role="form" action="{{ route('admin.category.store') }}" enctype="multipart/form-data" method="post">

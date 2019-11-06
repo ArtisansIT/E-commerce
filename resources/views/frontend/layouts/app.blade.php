@@ -14,16 +14,16 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
     <!-- Bootstrap CSS -->
-    <link href="{{ secure_asset('frontend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font-Awesome CSS -->
-    <link href="{{ secure_asset('frontend/assets/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/assets/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- helper class css -->
-    <link href="{{ secure_asset('frontend/assets/css/helper.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/assets/css/helper.min.css') }}" rel="stylesheet">
     <!-- Plugins CSS -->
-    <link href="{{ secure_asset('frontend/assets/css/plugins.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/assets/css/plugins.css') }}" rel="stylesheet">
     <!-- Main Style CSS -->
-    <link href="{{ secure_asset('frontend/assets/css/style.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('frontend/assets/css/skin-default.css') }}" rel="stylesheet" id="galio-skin">
+    <link href="{{ asset('frontend/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/assets/css/skin-default.css') }}" rel="stylesheet" id="galio-skin">
 </head>
 
 <body>
@@ -206,22 +206,22 @@
 
 
     <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
-    <script src="{{ secure_asset('frontend/assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
     <!-- Jquery Min Js -->
-    <script src="{{ secure_asset('frontend/assets/js/vendor/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/vendor/jquery-3.3.1.min.js') }}"></script>
     <!-- Popper Min Js -->
-    <script src="{{ secure_asset('frontend/assets/js/vendor/popper.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/vendor/popper.min.js') }}"></script>
     <!-- Bootstrap Min Js -->
-    <script src="{{ secure_asset('frontend/assets/js/vendor/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/vendor/bootstrap.min.js') }}"></script>
     <!-- Plugins Js-->
-    <script src="{{ secure_asset('frontend/assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/plugins.js') }}"></script>
     <!-- Ajax Mail Js -->
-    <script src="{{ secure_asset('frontend/assets/js/ajax-mail.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/ajax-mail.js') }}"></script>
     <!-- Active Js -->
-    <script src="{{ secure_asset('frontend/assets/js/main.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
     <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
-    <script src="{{ secure_asset('frontend/assets/js/switcher.js') }}"></script>
-    @include('sweetalert::alert')
+    <script src="{{ asset('frontend/assets/js/switcher.js') }}"></script>
+    
 </body>
 
 

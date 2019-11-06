@@ -5,10 +5,8 @@
         <div class="row">
             <br>
             <div class="col-md-6 col-md-offset-3">
-                <h1>Category Create</h1>
-
-
-               @include('admin/massages/error')
+                <h1>Sub-Category Create</h1>
+                
             <form role="form" action="{{ route('admin.category.store') }}" enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              {{ method_field('') }}

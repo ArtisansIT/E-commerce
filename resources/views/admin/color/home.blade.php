@@ -4,13 +4,14 @@
 @endsection
 @section('mainContent')
        <div class="box">
-         @if (count($Allcategory)<1)
+         @if (count($datas)<1)
 
             <h1>There is No data</h1>
 
         @else
 
                <div class="box-header">
+               @include('admin.massages.massage')
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -25,17 +26,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($Allcategory as $data)
+                    @foreach ($datas as $data)
                             <tr>
                                 <td>{{ $loop->index+1 }}</td>
                                 <td>{{ $data->name }}
                                 </td>
-                                <td><a href="{{ route('admin.category.edit', $data->id) }}"><i class="fa fa-edit"></i></a></td>
+                                <td><a href="{{ route('specialist.edit', $data->id) }}"><i class="fa fa-edit"></i></a></td>
                                 <td>
                                   {{-- <a href="">
                                     <i class="fa  fa-trash-o  text-danger"></i></a> --}}
                                   <form id="form-delete-{{ $data->id }}"  method="POST" style="display: none;" 
-                                    action=" {{ route('admin.category.destroy',$data->id) }} ">
+                                    action=" {{ route('specialist.destroy',$data->id) }} ">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
