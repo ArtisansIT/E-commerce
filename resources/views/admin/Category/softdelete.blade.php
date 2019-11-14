@@ -4,54 +4,59 @@
 @endsection
 @section('mainContent')
        <div class="box">
-         @if (count($Allcategory)<1)
+         @if (count($trasheditem)<1)
 
             <h1>There is No data</h1>
 
         @else
 
-           <div class="box-header">
+               <div class="box-header">
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              
-            <form action="{{ route('admin.category.delete_multiple') }}" method="POST">
-            @csrf
-            @method('DELETE')
+            
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>S.L  No</th>
-                 
                   <th>Name</th>
-                  <th>Edit(s)</th>
-                  <th>Delete</th>
                   
+                  <th>Delete</th>
+                  <th>STOP</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($Allcategory as $data)
+                    @foreach ($trasheditem as $data)
                             <tr>
-                              <td>
-                                
-                                  <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" value="{{ $data->id }}" name="deleteMany[]">
-                                        {{ $loop->index+1 }}
-                                      </label>
-                                    </div>
-                                    
-                                  
-                              </td>
-                               
+                                <td>{{ $loop->index+1 }}</td>
                                 <td>{{ $data->name }}
                                 </td>
-                                <td><a href="{{ route('admin.category.edit', $data->id) }}"><i  class="fa fa-edit"></i></a></td>
+                                {{-- <td><a href="{{ route('admin.category.edit', $data->id) }}"><i  class="fa fa-edit"></i></a></td> --}}
                                 <td>
-                                  <a href="{{ route('admin.category.category_delete_single',$data->id) }}"
-                                    ><i class="fa fa-trash-o text-danger"  data-toggle="tooltip" data-placement="top" title="Delete The Item"></i></a>
+                                  {{-- <a href="">
+                                    <i class="fa  fa-trash-o  text-danger"></i></a> --}}
+                                  <form id="form-delete-{{ $data->id }}"  method="get" style="display: none;" 
+                                    action=" {{ route('admin.category.parmanent_delete',$data->id) }} ">
+                                    {{-- {{ csrf_field() }}
+                                    {{ method_field('DELETE') }} --}}
+
+                                  </form>
+                                  <a href="" onclick="
+                                    if(confirm('Are You Sure To Delete One Item')){
+                                      event.preventDefault();
+                                      document.getElementById('form-delete-{{ $data->id }}').submit();
+
+                                    }
+                                    else
+                                    {
+                                      event.preventDefault();
+
+                                    }"><i class="fa fa-trash-o text-danger"  data-toggle="tooltip" data-placement="top" title="Delete The Item"></i></a>
                                 </td>
                                
+                                <td><a href="{{ route('admin.category.softdelete.restore',$data->id) }}" class="btn btn-sm btn-info"> Restore</a></td>
+                                    
+                              
                        
                             </tr>
                     @endforeach
@@ -61,22 +66,16 @@
                 <tfoot>
                 <tr>
                   <th>S.L  No</th>
-                  
                   <th>Name</th>
-                  <th>Edit(s)</th>
-                  <th>Delete</th>
                   
+                  <th>Delete</th>
+                  <th>STOP</th>
 
                 </tr>
                 </tfoot>
               </table>
-              <input type="submit" value="Delete" class="btn btn-info"> 
-            </form>
-              
             </div>
-           
 
-           
          @endif
          
             <!-- /.box-body -->

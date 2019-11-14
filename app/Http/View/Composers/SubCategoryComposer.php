@@ -3,15 +3,16 @@
 namespace App\Http\View\Composers;
 
 use App\Admin\Category;
+use App\Admin\Subcategory;
 use Illuminate\View\View;
 
-class CategoryComposer
+class SubCategoryComposer
 {
 
     public function compose(View $view)
     {
 
-        $view->with('Allcategory', $this->allcategory())->with('trasheditem',$this->trasheditem() );
+        $view->with('allsubcategory', $this->allsubcategory())->with('trasheditem',$this->trasheditem());
         // $view->with([
         //     'Allcategory',$this->allcategory(),
         //     'trasheditem',$this->trasheditem()
@@ -21,10 +22,10 @@ class CategoryComposer
 
     public function trasheditem(){
         
-       return  Category::onlytrashed();
+       return  Subcategory::onlytrashed();
     }
-    public function allcategory(){
+    public function allsubcategory(){
         
-       return  Category::categor();
+       return  Subcategory::allsubcategory();
     }
 }

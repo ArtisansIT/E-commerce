@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Color;
 
-use App\Admin\Category;
+use App\Admin\Color;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ColorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view ('admin.category.home');
+        return view('admin.color.home');
     }
 
     /**
@@ -25,9 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-    
-        return view ('admin.category.create');
-       
+        return view('admin.color.create');
     }
 
     /**
@@ -36,12 +34,11 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Category $category , Request $request)
-    {   
-        $category->name = $request->name;
-        $category->save();
-        return redirect()->back()->with('success','Category Create');
-        
+    public function store(Request $request , Color $color)
+    {
+        $color->name = $request->name;
+        $color->save();
+        return redirect()->back()->with('success', 'A color Create');
     }
 
     /**
@@ -61,9 +58,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Color $color)
     {
-        return view('admin.category.update',compact('category'));
+        return view('admin.color.update',compact('color'));
     }
 
     /**
@@ -73,11 +70,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Color $color)
     {
-        $category->name = $request->name;
-        $category->save();
-        return redirect()->route('admin.category.index')->with('success','Category Updated');
+        $color->name = $request->name;
+        $color->save();
+        return redirect()->route('admin.color.index')->with('success','color Updated');
     }
 
     /**
@@ -86,9 +83,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Color $color)
     {
-        $category->delete();
-        return redirect()->route('admin.category.index')->with('delete','Category Delete');
+        $color->delete();
+        return redirect()->route('admin.color.index')->with('delete','color Delete');
     }
 }

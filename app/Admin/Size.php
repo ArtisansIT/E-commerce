@@ -5,13 +5,13 @@ namespace App\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Color extends Model
+class Size extends Model
 {
     use SoftDeletes;
     protected $guarded =[];
 
     
-    public function scopeAllcolor($query){
+    public function scopeAllsize($query){
         return $query->cursor();
     }
     public function scopeOnlytrashed($query)

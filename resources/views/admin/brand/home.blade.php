@@ -4,17 +4,17 @@
 @endsection
 @section('mainContent')
        <div class="box">
-         @if (count($datas)<1)
+         @if (count($allbrand)<1)
 
             <h1>There is No data</h1>
 
         @else
 
-               <div class="box-header">
-               @include('admin.massages.massage')
+           <div class="box-header">
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+              
             
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -23,20 +23,21 @@
                   <th>Name</th>
                   <th>Edit(s)</th>
                   <th>Delete</th>
+                  
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($datas as $data)
+                    @foreach ($allbrand as $data)
                             <tr>
                                 <td>{{ $loop->index+1 }}</td>
                                 <td>{{ $data->name }}
                                 </td>
-                                <td><a href="{{ route('specialist.edit', $data->id) }}"><i class="fa fa-edit"></i></a></td>
+                                <td><a href="{{ route('admin.brand.edit', $data->id) }}"><i  class="fa fa-edit"></i></a></td>
                                 <td>
                                   {{-- <a href="">
                                     <i class="fa  fa-trash-o  text-danger"></i></a> --}}
                                   <form id="form-delete-{{ $data->id }}"  method="POST" style="display: none;" 
-                                    action=" {{ route('specialist.destroy',$data->id) }} ">
+                                    action=" {{ route('admin.brand.destroy',$data->id) }} ">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
@@ -51,8 +52,9 @@
                                     {
                                       event.preventDefault();
 
-                                    }"><i class="fa  fa-trash-o  text-danger"></i></a>
+                                    }"><i class="fa fa-trash-o text-danger"  data-toggle="tooltip" data-placement="top" title="Delete The Item"></i></a>
                                 </td>
+                               
                        
                             </tr>
                     @endforeach
@@ -65,6 +67,8 @@
                   <th>Name</th>
                   <th>Edit(s)</th>
                   <th>Delete</th>
+                  
+
                 </tr>
                 </tfoot>
               </table>
